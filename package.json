@@ -1,0 +1,53 @@
+{
+  "name": "fastify-locks",
+  "version": "1.0.0",
+  "description": "A Fastify Web Locks API Plugin",
+  "main": "./plugin.js",
+  "exports": {
+    "import": "./esm-wrapper.mjs",
+    "require": "./plugin.js"
+  },
+  "types": "./plugin.d.ts",
+  "scripts": {
+    "build": "gen-esm-wrapper . esm-wrapper.mjs",
+    "lint": "standardx \"**/*.{mjs,js,cjs}\" | snazzy",
+    "prepack": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/piscinajs/fastify-locks"
+  },
+  "keywords": [
+    "piscina",
+    "weblocks",
+    "fastify"
+  ],
+  "author": "James M Snell <jasnell@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^14.14.10",
+    "fastify": "^3.8.0",
+    "gen-esm-wrapper": "^1.1.1",
+    "snazzy": "^9.0.0",
+    "standardx": "^7.0.0",
+    "tap": "^14.11.0"
+  },
+  "dependencies": {
+    "fastify-plugin": "^3.0.0",
+    "piscina-locks": "^1.0.0"
+  },
+  "eslintConfig": {
+    "rules": {
+      "semi": [
+        "error",
+        "always"
+      ],
+      "no-unused-vars": "off"
+    },
+    "globals": {
+      "SharedArrayBuffer": true,
+      "Atomics": true
+    }
+  },
+  "standardx": {}
+}
