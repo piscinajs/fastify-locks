@@ -1,15 +1,11 @@
-const fastify = require('fastify')({
-  logger: true
-});
+const fastify = require('fastify')({ logger: true });
 
 const fastifyLocks = require('../..');
 
-fastify.register(fastifyLocks, {});
+fastify.register(fastifyLocks);
 
-fastify.get('/', async (request, reply) => {
-  fastify.locks.request('example', async () => {
-    reply.send('hello world');
-  });
+fastify.get('/', async () => {
+  return await fastify.locks.request('example', () => 'hello world');
 });
 
 // Run the server!

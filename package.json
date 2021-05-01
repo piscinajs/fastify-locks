@@ -1,6 +1,6 @@
 {
   "name": "fastify-locks",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "A Fastify Web Locks API Plugin",
   "main": "./plugin.js",
   "exports": {
@@ -25,16 +25,16 @@
   "author": "James M Snell <jasnell@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "@types/node": "^14.14.10",
+    "@types/node": "^15.0.1",
     "fastify": "^3.8.0",
     "gen-esm-wrapper": "^1.1.1",
     "snazzy": "^9.0.0",
     "standardx": "^7.0.0",
-    "tap": "^14.11.0"
+    "tap": "^15.0.6"
   },
   "dependencies": {
     "fastify-plugin": "^3.0.0",
-    "piscina-locks": "^1.0.0"
+    "piscina-locks": "^2.0.2"
   },
   "eslintConfig": {
     "rules": {
