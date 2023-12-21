@@ -1,0 +1,24 @@
+on:
+  push:
+    branches:
+     - current
+     - next
+     - 'v*'
+  pull_request:
+
+name: CI
+
+jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: v20.x
+      - name: Install dependencies
+        run: npm install
+      - name: Check linting
+        run: npm run lint

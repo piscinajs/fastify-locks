@@ -9,4 +9,4 @@ function locksPlugin (fastify, options, next) {
   next();
 }
 
-module.exports = fp(locksPlugin, { fastify: '>=1.0.0', name, version });
+module.exports = fp(locksPlugin, { fastify: '>=4.0.0', name, version });
