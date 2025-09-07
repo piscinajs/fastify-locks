@@ -1,7 +1,7 @@
 import { expectAssignable, expectType } from 'tsd';
 
 import fastify from 'fastify';
-import PiscinaLocks from 'piscina-locks';
+import PiscinaLocks from '@piscina/locks';
 
 import Plugin, {
   PiscinaLocksManager,
