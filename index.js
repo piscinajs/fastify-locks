@@ -1,7 +1,7 @@
 'use strict';
 
 const fp = require('fastify-plugin');
-const { request, query } = require('piscina-locks');
+const { request, query } = require('@piscina/locks');
 const { name, version } = require('./package.json');
 
 function locksPlugin (fastify, options, next) {
