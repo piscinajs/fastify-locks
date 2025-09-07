@@ -24,6 +24,9 @@
     "weblocks",
     "fastify"
   ],
+  "engines": {
+    "node": ">=20"
+  },
   "author": "James M Snell <jasnell@gmail.com>",
   "license": "MIT",
   "devDependencies": {
