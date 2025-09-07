@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.0.1](https://github.com/piscinajs/fastify-locks/compare/v4.0.0...v4.0.1) (2025-09-07)
+
+
+### Bug Fixes
+
+* enable provenance ([823fa80](https://github.com/piscinajs/fastify-locks/commit/823fa80e7915583aeb2ad1aa1b26d691bf8f0f2a))
+
 ## [4.0.0](https://github.com/piscinajs/fastify-locks/compare/v3.0.0...v4.0.0) (2025-09-07)
 
 
