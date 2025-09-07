@@ -14,6 +14,9 @@ on:
 
 name: CI
 
+permissions:
+  contents: read
+
 jobs:
   lint:
     name: Lint
