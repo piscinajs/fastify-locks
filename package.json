@@ -1,6 +1,6 @@
 {
   "name": "@piscina/fastify-locks",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "description": "A Fastify Web Locks API Plugin",
   "main": "index.js",
   "exports": {
