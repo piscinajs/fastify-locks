@@ -4,21 +4,70 @@ on:
      - current
      - next
      - 'v*'
+    paths-ignore:
+      - 'docs/**'
+      - '*.md'
   pull_request:
+    paths-ignore:
+      - 'docs/**'
+      - '*.md'
 
 name: CI
+
+permissions:
+  contents: read
 
 jobs:
   lint:
     name: Lint
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - name: Install Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955 # v4.3.0
         with:
-          node-version: v20.x
+          persist-credentials: false
+      - name: Install Node.js
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: v24.x
+          cache: 'npm'
+          cache-dependency-path: package.json
+
       - name: Install dependencies
         run: npm install
+
       - name: Check linting
         run: npm run lint
+
+  test:
+    name: Test
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        node-version: [20.x, 22.x, 24.x]
+    runs-on: ${{matrix.os}}
+    steps:
+      - uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955 # v4.3.0
+        with:
+          persist-credentials: false
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        id: node_setup
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+          cache-dependency-path: package.json
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Test Types
+        env:
+          NODE_VERSION: ${{ steps.node_setup.outputs.node-version }}
+        run: npm run test:types
+
+      - name: Test
+        env:
+          NODE_VERSION: ${{ steps.node_setup.outputs.node-version }}
+        run: npm run test

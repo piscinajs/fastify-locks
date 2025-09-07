@@ -1,5 +1,5 @@
 /// <reference types="node" />
-import PiscinaLocks from 'piscina-locks';
+import PiscinaLocks from '@piscina/locks';
 import { FastifyPluginCallback } from 'fastify';
 
 export interface PiscinaLocksOptions {}
