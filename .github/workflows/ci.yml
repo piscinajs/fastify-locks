@@ -62,7 +62,12 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
+      - name: Test Types
+        env:
+          NODE_VERSION: ${{ steps.node_setup.outputs.node-version }}
+        run: npm run test:types
+
       - name: Test
         env:
           NODE_VERSION: ${{ steps.node_setup.outputs.node-version }}
-        run: npm run test:ci
+        run: npm run test
